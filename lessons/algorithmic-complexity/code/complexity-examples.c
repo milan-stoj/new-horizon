@@ -9,7 +9,7 @@ int itemsInArray = 0;
 
 
 /* order of 1 O(1) */
-int addItemToArray(int newItem) {
+void addItemToArray(int newItem) {
 	theArray[itemsInArray++] = newItem;
 }
 
@@ -28,11 +28,11 @@ void printArray() {
 	}
 }
 
-void main () {
+int main () {
 
 	
 	int i, n;
-	user_time_t t;
+	time_t t;
 	srand((unsigned) time(&t));
 
 	generateRandomArray();
