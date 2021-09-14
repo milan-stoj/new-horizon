@@ -8,9 +8,9 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "${workspaceFolder}/lessons/algorithmic-complexity/code/${fileBasenameNoExtension}",
+			"program": "${workspaceFolder}/programs/${fileBasenameNoExtension}",
 			"args": [],
-			"cwd": "${workspaceFolder}"
+			"cwd": "${workspaceFolder}/programs"
 		}
 	]
 }
