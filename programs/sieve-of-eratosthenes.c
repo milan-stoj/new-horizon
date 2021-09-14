@@ -19,7 +19,7 @@ void printPrimes(int n) {
 
 	for (int divisor = 2; divisor * divisor <= n; divisor++) {
 
-		// check if prime at divisor index is true
+		// check if the prime at divisor index is true
 		if (prime[divisor]) {
 
 			// set global iterator to 2 * divisor, set 
@@ -44,5 +44,5 @@ void printPrimes(int n) {
 int main() {
 
 	// printPrimes call - input = 50
-	printPrimes(29)
+	printPrimes(29);
 }
