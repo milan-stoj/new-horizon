@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 void printPrimes(int n) { 
 
 	// define an bool element array (0,1) of size n
-	bool prime[n + 1]; 
+	bool *prime = malloc(n * sizeof(int)); 
 
 	// define a global iteration variable i
 	int i;
@@ -38,11 +39,12 @@ void printPrimes(int n) {
 			printf("%d\n" , i);
 		}
 	}
+	free(prime);
 }
 
 // main method
 int main() {
 
 	// printPrimes call - input = 50
-	printPrimes(29);
+	printPrimes(1000000);
 }

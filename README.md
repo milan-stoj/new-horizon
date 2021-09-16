@@ -1,16 +1,12 @@
 # New Horizon
 
-> Lessons sourced from jwasham/coding-interview-university. I made my own repo to create folders of my notes and code examples.
+> Lessons sourced from [jwasham's coding-interview-university](https://github.com/jwasham/coding-interview-university). Give him and this massive list of resources all the 
+> credit it deserves. I cloned a reduced version of his README.md and made my 
+> own repo as a place to keep track of and store my lesson notes and coding 
+> samples. Completing all lessons/examples in C because as a coder, I feel it is 
+> a right of passage to touch this language and experience its bare-metal power.
 
 ## Algorithmic complexity / Big-O / Asymptotic analysis
-
-- Nothing to implement here, you're just watching videos and taking notes! Yay!
-
-- There are a lot of videos here. Just watch enough until you understand it. You can always come back and review.
-
-- Don't worry if you don't understand all the math behind it.
-
-- You just need to understand how to express the complexity of an algorithm in terms of Big-O.
 
 - [x] [Harvard CS50 - Asymptotic Notation (video)](https://www.youtube.com/watch?v=iOq5kSKqeR4)
 
@@ -33,11 +29,6 @@
   - [Computational Complexity: Section 2](https://www.topcoder.com/community/competitive-programming/tutorials/computational-complexity-section-2/)
 
 - [ ] [Cheat sheet](http://bigocheatsheet.com/)
-
-Well, that's about enough of that. 
-
-When you go through "Cracking the Coding Interview", there is a chapter on this, and at the end there is a quiz to see 
-if you can identify the runtime complexity of different algorithms. It's a super review and test.
 
 ## Data Structures
 
@@ -84,7 +75,7 @@ if you can identify the runtime complexity of different algorithms. It's a super
   
   - [ ] [C Code (video)](https://www.youtube.com/watch?v=QN6FPiD0Gzo)
     
-          - not the whole video, just portions about Node struct and memory allocation
+          - just portions about Node struct and memory allocation
   
   - [ ] Linked List vs Arrays:
     
@@ -99,7 +90,7 @@ if you can identify the runtime complexity of different algorithms. It's a super
     
     - [Pointers to Pointers](https://www.eskimo.com/~scs/cclass/int/sx8.html)
   
-  - [ ] Implement (I did with tail pointer & without):
+  - [ ] Implement:
     
     - [ ] size() - returns number of data elements in list
     - [ ] empty() - bool returns true if empty
