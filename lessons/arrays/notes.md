@@ -69,12 +69,13 @@ c[3] = 'e';
 c[100] = 'a';
 ```
 
+# Dynamic Arrays and Amortized Analysis
+https://www.coursera.org/lecture/data-structures/dynamic-arrays-EwbnV
 
-
-
-
-
-
-
-
+## Dynamic Arrays
+- Problem: Stats arrays are static!
+	- Size has to be determined at compile time.
+	- `int my_array[100]`
+- Semi-solution: dynamically-allocated arrays:
+	- `int *my_array = new int[size];`
 
