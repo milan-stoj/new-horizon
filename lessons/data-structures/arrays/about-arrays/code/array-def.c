@@ -18,11 +18,25 @@ int main() {
 	printf("The size of array c is %d\n", size);
 	printf("Using pointers, the size of array c is %d\n", size_p);
 
+	/* jagged-array */
+	int row_0[7] = { 1, 2, 3, 4, 5, 6, 7};
+	int row_1[3] = { 100, 200, 300};
 
-	/* multi-dim array */
+	int* jagged[2] = { row_0, row_1 };
 
-}
+	int Size[2] = {7, 3}, k = 0;
 
-void printPrimes() {
+	for (int i = 0; i < 2; i++) {
+		int* ptr = jagged[i];
 
+		for (int j = 0; j < Size[k]; j++) {
+			printf("%d", *ptr);
+
+			ptr++;
+		}
+
+		printf("\n");
+		k++;
+		jagged[i]++;
+	}
 }
