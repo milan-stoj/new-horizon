@@ -34,11 +34,11 @@
 
 - ### Arrays
   
-  - [ ] About Arrays:
+  - [x] About Arrays:
     - [x] [Arrays (video)](https://www.coursera.org/lecture/data-structures/arrays-OsBSF)
     - [x] [UC Berkeley CS61B - Linear and Multi-Dim Arrays (video)](https://archive.org/details/ucberkeley_webcast_Wp8oiO_CZZE) (Start watching from 15m 32s)
     - [x] [Dynamic Arrays (video)](https://www.coursera.org/lecture/data-structures/dynamic-arrays-EwbnV)
-    - [ ] [Jagged Arrays (video)](https://www.youtube.com/watch?v=1jtrQqYpt7g)
+    - [x] [Jagged Arrays (video)](https://www.youtube.com/watch?v=1jtrQqYpt7g)
   - [ ] Implement a vector (mutable array with automatic resizing):
     - [ ] Practice coding using arrays and pointers, and pointer math to jump to an index instead of using indexing.
     - [ ] New raw data array with allocated memory
