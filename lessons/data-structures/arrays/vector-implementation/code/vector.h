@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define INIT_CAPACITY 16;
+#define INIT_CAPACITY 4;
 
 typedef struct vector {
 	// struct members
@@ -19,10 +19,22 @@ typedef struct vector {
 	int (*pop)(struct vector*);
 	void (*delete)(struct vector*, int index);
 	void (*remove_item)(struct vector*, int item);
-	// int (*find)(struct vector*, int item);
-	// void (*resize)(struct vector*, int new_capacity);
+	int (*find)(struct vector*, int item);
 	void (*print)(struct vector*);
+
 } vector ;
+
+void resize(vector *v) {
+	if (v->size == v->capacity) {
+		v->capacity *= 2;
+		v->arr = (int *)realloc(v->arr, sizeof(int)*v->capacity);
+		return;
+	} else if (v->size > 0 && v->size <= (int)v->capacity/4) {
+		v->capacity /= 2;
+		v->arr = (int *)realloc(v->arr, sizeof(int)*v->capacity);
+		return;
+	}
+}
 
 int at(vector *v, int index) {
 	if (index < 0 || index > v->size) {
@@ -39,6 +51,7 @@ bool is_empty(vector *v) {
 void push(vector *v, int item) {
 	v->arr[v->size] = item;
 	v->size++;
+	resize(v);
 	return;
 }
 
@@ -48,6 +61,7 @@ void insert(vector *v, int index, int item) {
 	}
 	v->arr[index] = item;
 	v->size++;
+	resize(v);
 	return;
 }
 
@@ -57,6 +71,7 @@ void prepend(vector *v, int item) {
 	}
 	v->arr[0] = item;
 	v->size++;
+	resize(v);
 } 
 
 void print(vector *v) {
@@ -67,9 +82,10 @@ void print(vector *v) {
 }
 
 int pop(vector *v) {
-	int pop = v->arr[v->size - 1];
-	v->arr[v->size - 1] = NULL;
+	int pop = v->arr[(int)v->size - 1];
+	v->arr[v->size - 1] = 0;
 	v->size--;
+	resize(v);
 	return pop;
 }
 
@@ -79,6 +95,7 @@ void delete(vector *v, int index) {
 		v->arr[i] = v->arr[i+1];
 	}
 	v->size--;
+	resize(v);
 }
 
 void remove_item(vector *v, int item) {
@@ -91,6 +108,16 @@ void remove_item(vector *v, int item) {
 			i--;
 		}
 	}
+	resize(v);
+}
+
+int find(vector *v, int item) {
+	for(int i = 0; i < v->size; i++) {
+		if (v->arr[i] == item) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 void init(vector *v) {
@@ -106,5 +133,6 @@ void init(vector *v) {
 	v->pop = pop;
 	v->delete = delete;
 	v->remove_item = remove_item;
+	v->find = find;
 	return;
 }

@@ -62,8 +62,13 @@ int main() {
 	printf("\n%d\n", v.at(&v, 18));
 
 	v.remove_item(&v, 24);
+	v.remove_item(&v, 2);
+	v.remove_item(&v, 8);
 
 	v.print(&v);
+
+	printf("\nFirst index where 12 is found: %d", v.find(&v, 12));
+	printf("\nFirst index where 100 is found: %d", v.find(&v, 100));
 
 	return 0;
 }
