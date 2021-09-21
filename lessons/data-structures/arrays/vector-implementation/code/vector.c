@@ -41,7 +41,28 @@ int main() {
 	printf("%d\n", popped);
 	v.print(&v);
 
-	v.delete(&v, 100);
+	v.delete(&v, 5);
+	v.print(&v);
+
+	v.push(&v, 2);
+	v.push(&v, 5);
+	v.push(&v, 12);
+	v.push(&v, 15);
+	v.push(&v, 2);
+	v.push(&v, 8);
+	v.push(&v, 1);
+	v.push(&v, 24);
+	v.push(&v, 24);
+	v.push(&v, 24);
+	v.push(&v, 8);
+	v.push(&v, 24);
+
+	v.print(&v);
+
+	printf("\n%d\n", v.at(&v, 18));
+
+	v.remove_item(&v, 24);
+
 	v.print(&v);
 
 	return 0;

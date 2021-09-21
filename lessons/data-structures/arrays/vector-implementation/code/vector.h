@@ -18,7 +18,7 @@ typedef struct vector {
 	void (*prepend)(struct vector*, int item);
 	int (*pop)(struct vector*);
 	void (*delete)(struct vector*, int index);
-	// void (*remove)(struct vector*, int item);
+	void (*remove_item)(struct vector*, int item);
 	// int (*find)(struct vector*, int item);
 	// void (*resize)(struct vector*, int new_capacity);
 	void (*print)(struct vector*);
@@ -74,10 +74,23 @@ int pop(vector *v) {
 }
 
 void delete(vector *v, int index) {
+	if (index >= v->size) return;
 	for(int i = index; i < v->size; i++) {
 		v->arr[i] = v->arr[i+1];
 	}
 	v->size--;
+}
+
+void remove_item(vector *v, int item) {
+	for(int i = 0; i < v->size; i++) {
+		if (v->arr[i] == item) {
+			for(int j = i; j < v->size; j++) {
+				v->arr[j] = v->arr[j+1];
+			}
+			v->size--;
+			i--;
+		}
+	}
 }
 
 void init(vector *v) {
@@ -92,5 +105,6 @@ void init(vector *v) {
 	v->prepend = prepend;
 	v->pop = pop;
 	v->delete = delete;
+	v->remove_item = remove_item;
 	return;
 }
