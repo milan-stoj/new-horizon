@@ -139,3 +139,5 @@ Suppose you want to store a list of items like your shopping list
     - **Disadvantages:**
       1. Insert item at beginning or middle of list takes time proportional to length of array O(n).
       2. Arrays have a fixed length.
+
+      3:33
