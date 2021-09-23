@@ -140,4 +140,81 @@ Suppose you want to store a list of items like your shopping list
       1. Insert item at beginning or middle of list takes time proportional to length of array O(n).
       2. Arrays have a fixed length.
 
-      3:33
+---
+```java
+public class List() {
+    int[] a;
+    int lastItem;
+}
+
+public List() {
+    a = new int[10];
+    lastItem = -1;
+}
+
+public void insertItem(int nesItem, int location) {
+    int i;
+    
+    // if array a is full, create new array with greater capacity.
+    if (lastItem + 1 == a.length) {
+        int[] b = new int[2*a.length];
+        for (i=0; i <= lastItem; i++) {
+            b[i] = a[i];
+        }
+        a = b;
+    }
+
+    for (i = lastItem; i >= location; i--) {
+        a[i + 1] = a[i];
+    }
+    a[location] = newItem;
+    lastItem++;
+}
+```
+
+## Linked Lists
+A recursive data type, made of data strcutures called "nodes"
+- Each node has two things:
+    1. An item.
+    2. A reference to next node in the list.
+
+### `Definition of ListNode Class`
+```java
+public class ListNode {
+    int item;
+    ListNode next;
+}
+
+ListNode l1 = new ListNode();
+ListNode l2 = new ListNode(); 
+ListNode l3 = new ListNode();
+
+l1.item = 7;
+l2.item = 0;
+l3.item = 6;
+
+l1.next = l2;
+l2.next = l3;
+l3.next = null;
+```
+
+### `Node Operations`
+```java
+public ListNode(int item, ListNode next) {
+    this.item = item;
+    this.next = next;
+}
+
+public ListNode(int item) {
+    this(item, null);
+}
+
+ListNode l1 = new ListNode(7, new ListNode(0, 
+                            new ListNode(6)))))
+```
+
+### Advantages Over Array Lists
+- Inserting item into middle of list takes constant time O(1) if you have reference to previous node
+- Moreover, list can keep growing until memory runs out.
+
+[20:59]
