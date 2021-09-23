@@ -3,8 +3,11 @@
 > Lessons sourced from [jwasham's coding-interview-university](https://github.com/jwasham/coding-interview-university). Give him and this massive list of resources all the 
 > credit it deserves. I cloned a reduced version of his README.md and made my 
 > own repo as a place to keep track of and store my lesson notes and coding 
-> samples. Completing all lessons/examples in C because as a coder, I feel it is 
+> samples. Completing all lessons/examples in C because as a software engineer, I feel it is 
 > a right of passage to touch this language and experience its bare-metal power.
+> | Total Items 	|    Complete 	|     Remaining 	  | % Done      |
+> |:-----------:	|:------------:	|:---------------:	|:----------:	|
+> |     437     	|       23      |       414       	|    5.26%   	|
 
 ## Algorithmic complexity / Big-O / Asymptotic analysis
 
@@ -69,7 +72,7 @@
   
   - [ ] Description:
     
-    - [ ] [Singly Linked Lists (video)](https://www.coursera.org/lecture/data-structures/singly-linked-lists-kHhgK)
+    - [x] [Singly Linked Lists (video)](https://www.coursera.org/lecture/data-structures/singly-linked-lists-kHhgK)
     - [ ] [CS 61B - Linked Lists 1 (video)](https://archive.org/details/ucberkeley_webcast_htzJdKoEmO0)
     - [ ] [CS 61B - Linked Lists 2 (video)](https://archive.org/details/ucberkeley_webcast_-c4I3gFYe3w)
   
