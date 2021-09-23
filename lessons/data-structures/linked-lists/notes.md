@@ -128,3 +128,14 @@ if tail = node:
 | AddBefore(Node, Key) | O(n)				|
 | AddAfter(Node, Key)  | O(1)				|
  
+# Linked Lists I
+> https://archive.org/details/ucberkeley_webcast_htzJdKoEmO0
+
+## Lists
+### Example
+Suppose you want to store a list of items like your shopping list
+- Obvious way to do this is with an array.
+  - Store a list of ints as an array.
+    - **Disadvantages:**
+      1. Insert item at beginning or middle of list takes time proportional to length of array O(n).
+      2. Arrays have a fixed length.
