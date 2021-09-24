@@ -217,4 +217,67 @@ ListNode l1 = new ListNode(7, new ListNode(0,
 - Inserting item into middle of list takes constant time O(1) if you have reference to previous node
 - Moreover, list can keep growing until memory runs out.
 
-[20:59]
+Inserts a new item after "this".
+
+```java
+public void insertAfter(int item) {
+    next = new ListNode(item, next);
+}
+.
+.
+.
+l2.insertAfter(3);
+```
+
+### Disadvantages Over Array Lists
+- Finding the nth item of a linked list time proportional to n
+    > Constant time on array lists.
+
+```java
+public ListNode nth(int position) {
+    if (position == 1) {
+        return this;
+    } else if ((position < 1) || (next == null)) {
+        return null;
+    } else {
+        return next.nth(position - 1);
+    }
+}
+```
+
+## Lists of Objects
+Reference any object by declaring a reference of Type Object
+```java
+public class SListNode {
+    public Object item;
+    public  SListNode next;
+}
+```
+
+## A List Class
+2 problems with SListNodes by themselves:
+
+1. Insert new item at beginning of list.   
+`x = new SListNode("soap", x);`
+
+2. How do you represent an empty list?  
+`x = null;` Run-time error if you call a method on a null object.   
+e.g. `x.nth(1);`
+    - Solution: Separate SListClass to maintain head of the list.
+
+```java
+public class SList {
+    private SListNode head;
+    private int size;
+
+    public SList() {
+        head = null;
+        size = 0;
+    }
+    
+    public void insertFront(Object item) {
+        head = new SListNode(item, head);
+        size++;
+    }
+}
+```
