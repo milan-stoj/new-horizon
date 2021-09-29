@@ -5,9 +5,9 @@
 > own repo as a place to keep track of and store my lesson notes and coding 
 > samples. Completing all lessons/examples in C because as a software engineer, I feel it is 
 > a right of passage to touch this language and experience its bare-metal power.
-> | Total Items 	|    Complete 	|     Remaining 	  | % Done      |
+> | Total Items 	|    Complete 	|     Remaining 	| % Done        |
 > |:-----------:	|:------------:	|:---------------:	|:----------:	|
-> |     437     	|       23      |       414       	|    5.26%   	|
+> |     437     	|       31      |       406       	|    7.1%   	|
 
 ## Algorithmic complexity / Big-O / Asymptotic analysis
 
@@ -70,7 +70,7 @@
 
 - ### Linked Lists
   
-  - [ ] Description:
+  - [x] Description:
     
     - [x] [Singly Linked Lists (video)](https://www.coursera.org/lecture/data-structures/singly-linked-lists-kHhgK)
     - [x] [CS 61B - Linked Lists 1 (video)](https://archive.org/details/ucberkeley_webcast_htzJdKoEmO0)
