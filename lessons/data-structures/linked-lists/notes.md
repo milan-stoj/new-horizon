@@ -400,3 +400,43 @@ public class DList {
 5. ... if x.prev == y, then y.next == x.
 6. A Dlist's "size" variable is always correct. # of DListNodes not counting the sentinel.
 7. An empty DList's sentinel.prev & sentinel.next points to itself.
+
+# Linked List vs Array List
+> https://www.coursera.org/lecture/data-structures-optimizing-performance/core-linked-lists-vs-arrays-rjBs9
+
+Array List and Linked List are just both data structures that fulfil the promises defined in the List implementation.
+
+**ArrayList** implements the list interface using an array[]
+- Not efficient when it comes to adding items at front of list **O(n)**
+    > ADT specifies functionality, but not efficiency!
+
+To implement a linked list, you will need to implement two classes:
+1. ListNode
+2. LinkedList
+3. SentinelNode - don't store data, always there when list is empty, and pointed to by head and tail pointer.
+   > Buffers that keep you from running off either ends of the list.
+
+How long does it take to get to an element of a particular index in an ArrayList?
+- O(1)
+
+How long does it take to get to an element of a particular index of a LinkedList?
+- O(n) - much slower than array list. Only have constant time access to head and tail
+
+> Underlying implementation will determine speed of operations, and it is up to you to determine which implementation makes the most sense for what is required.
+
+# In the Real World: Lists vs. Arrays
+> https://www.coursera.org/lecture/data-structures-optimizing-performance/in-the-real-world-lists-vs-arrays-QUaUd
+
+When would you want to use a list over an array? 
+
+Big advantage of the array is random access - reading the array.
+> Arrays are faster to read, lists are faster to write.
+
+# Why not to use Linked List
+> https://www.youtube.com/watch?v=YQs6IC-vgmo
+
+Vectors are more compact, linear search is unbeatable. Vectors stay compact, predictable, and more efficient as the size of the data structures increases.
+
+
+
+
