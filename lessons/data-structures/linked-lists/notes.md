@@ -317,3 +317,86 @@ public class EvilTamperer{
 }
 ```
 
+## Interface & ADT
+**Interace of a Class:** prototypes for public methods, plus descriptions of 
+those methods behaviors.
+- Instructions to your programming partner, or to your self, of how to call your methods.
+- Make public, and advertise to the world.
+
+**Abstract Data Types (ADT):** A class with a well-defined interface, but implementation details are hidden from other classes.
+- Hidden so you retain the flexibility to change your implementation later on.
+- De-coupled from rest of system.
+
+**Invariant:** a fact about a data structure that is always true:
+> i.e. "A Date object always represents a valid date."
+
+Not all classes are ADTs! Some classes are just data storage units 
+(no invariants).
+
+## The SList ADT
+Another advantage of SList class:
+> **SList ADT enforces 2 invariants.**
+> 1. "Size" is always correct.
+> 2. List is never circularly linked.
+
+Both goals accomplished because only SList methods can change the lists.
+
+> **SList ensures this:**
+> 1. The fields of SList (head and size) are "private".
+> 2. No method of SList returns an SListNode.
+
+## Doubly-Linked Lists
+Inserting/deleting at front of list is easy:
+```java
+public void deleteFront() {
+    if (head != null) {
+        head = head.next;
+        size--;
+    }
+}
+```
+
+Inserting or deleting item at end of list takes a long time. Hence the benefit for Doubly Linked Lists:
+```java
+public class DListNode {
+    Object item;
+    DListNode next; // ref next node in list
+    DListNode prev; // ref previous node in list
+}
+
+public class DList {
+    private DListNode head;
+    private DListNode tail;
+}
+```
+Insert & delete items at both ends in constant running time per deletion or insertion
+
+Removes the tail node (at least 2 items in DList):
+```java
+tail.prev.next = null;
+tail = tail.prev;
+```
+
+**Sentinel:** A special node that does not represent an item.
+- Prev pointer points to tail of the list.
+- Next pointer points to head of list.
+- Next field of tail, points to sentinel.
+- Prev field of head tail points to sentinel.
+
+DList v.2: circularly linked doubly linked list.
+
+```java
+public class DList {
+    private DListNode head;     //sentinel
+    private int size;
+}
+```
+
+**DList invariants with sentinel:**
+1.  For any DList d, d.head != null. 
+2.  For any DListNode x, x.next != null. 
+3.  ... x.prev != null
+4. ... if x.next == y, then y.prev == x.
+5. ... if x.prev == y, then y.next == x.
+6. A Dlist's "size" variable is always correct. # of DListNodes not counting the sentinel.
+7. An empty DList's sentinel.prev & sentinel.next points to itself.
