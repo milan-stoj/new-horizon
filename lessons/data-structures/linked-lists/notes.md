@@ -285,3 +285,35 @@ public class SList {
 # Linked Lists II
 > https://archive.org/details/ucberkeley_webcast_-c4I3gFYe3w
 
+## Public & Private Keywords
+Why make something public or private?
+
+1. You want to prevent data from being corrupted by other classes.
+2. By keeping certain things private, you ensure other classes wont come to depend on them.
+3. You can improve the implementation without causing other classes to fail.
+
+ **`Example of This`**
+```java
+public class Date {
+
+    private int day;
+    private int month;
+
+    private void setMonth(int m) {
+        month = m;
+    }
+
+    public Date(int month, int day) {
+        // implementation with error-checking code here.
+    }
+}
+
+public class EvilTamperer{
+    public void tamper() {
+        Date d = new Date(1, 1, 2006);
+        d.day = 100;        // foiled!
+        d.setMonth(0);      // foiled again!
+    }
+}
+```
+
