@@ -10,10 +10,7 @@ struct node
 
 struct list
 {
-    struct node *head; // head pointer holds the address of starting node
-    struct node *tail; // head pointer holds the address of starting node
-}
-
+};
 
 int size()
 {
