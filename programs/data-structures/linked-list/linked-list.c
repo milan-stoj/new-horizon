@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <curses.h>
 
 struct node
 {
@@ -67,7 +66,6 @@ int main()
     head = NULL; // list is empty.
     do
     {
-        clear();
         printf("\n\n\t 1. Create linked list");
         printf("\n\n\t 2. Display linked list");
         printf("\n\n\t 3. Exit");
