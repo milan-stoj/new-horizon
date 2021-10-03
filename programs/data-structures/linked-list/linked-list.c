@@ -1,69 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-struct node
-{
-    int data;
-    struct node *next;
-};
-
-struct list
-{
-};
-
-int size()
-{
-
-    return 1;
-
-}
-
-
-
-int createLinkedList()
-{
-    struct node *newnode, *temp;
-    newnode = (struct node *)malloc(sizeof(struct node)); // create new node
-    printf("\n\n\t Enter the data for the linkedlist: "); // enter data
-    scanf("%d", &newnode->data);
-    newnode->next = NULL;
-    if (head == NULL)
-    {
-        head = newnode;
-        return 1;
-    }
-    else
-    {
-        temp = head;
-        while (temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = newnode;
-        return 1;
-    }
-}
-
-void display()
-{
-    struct node *temp;
-    if (head != NULL)
-    {
-        for (temp = head; temp != NULL; temp = temp->next)
-        {
-            printf("%d\t", temp->data);
-        }
-    }
-    else
-    {
-        printf("\n\n\t The list is empty...");
-    }
-}
+#include "linked-list.h"
 
 int main()
 {
     int ch;
-    head = NULL; // list is empty.
     do
     {
         printf("\n\n\t 1. Create linked list");
@@ -74,10 +15,8 @@ int main()
         switch (ch)
         {
         case 1:
-            createLinkedList();
             break;
         case 2:
-            display();
             break;
         case 3:
             exit(1);

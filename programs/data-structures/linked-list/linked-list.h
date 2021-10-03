@@ -20,18 +20,18 @@
 typedef struct node 
 {
     void **data;
-    node *next;
-};
+    struct node *next;
+} node;
 
 typedef struct linked_list 
 {
     node *head; // head pointer holds the address of starting node
     node *tail; // tail pointer holds the address of last node
     int size;   // size of the linked list
-};
+} linked_list;
 
 void *value_at(linked_list *list, int index) {
-    if (list->size == 0) return;
+    if (list->size == 0) return 0;
     node *temp = list->head;
     for(int i = 0; i < index; i++)
     {
