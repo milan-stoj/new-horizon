@@ -1,18 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "linked-list.h"
+
+char buffer[128];
+
+int display_menu(int ch)
+{
+    system("clear");
+    printf("\n\t 1. Create Linked List");
+    printf("\n\t 2. Display Linked List");
+    printf("\n\t 3. Exit");
+    printf("\n\n\t Enter your choice: ");
+    if(fgets(buffer, sizeof(buffer), stdin) != NULL)
+    {
+        if (sscanf(buffer, "%d", &ch) != 1)
+        {
+            ch = 0;
+        }
+
+    }
+    return ch;
+}
 
 int main()
 {
     int ch;
     do
     {
-        printf("\n\n\t 1. Create linked list");
-        printf("\n\n\t 2. Display linked list");
-        printf("\n\n\t 3. Exit");
-        printf("\n\n\t Enter your choice:- ");
-        scanf("%d", &ch);
-        switch (ch)
+        switch (display_menu(ch))
         {
         case 1:
             break;
