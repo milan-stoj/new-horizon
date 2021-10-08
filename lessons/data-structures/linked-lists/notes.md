@@ -48,7 +48,7 @@ Links in a chain.
 ### PushBack (With Tail) O(1)
 1. Allocate a node.
 2. Put in new key.
-3. Update the next pointer of the current tail to point to the current tail.
+3. Update the next pointer of the current tail to point to the new tail.
 
 ### PopBack (With Tail) O(n)
 1. Start at head until 2nd to last node is reached.

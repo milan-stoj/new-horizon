@@ -31,6 +31,11 @@ typedef struct linked_list
     int size;   // size of the linked list
 } linked_list;
 
+int list_size(linked_list *list)
+{
+    return list->size;
+}
+
 void init_list(linked_list *list)
 {
     list->head = (node*)malloc(sizeof(node));
@@ -53,6 +58,25 @@ void push_front(linked_list *list, int value)
     {
         new->next = list->head->next;
         list->head->next = new;
+        list->size++;
+    }
+}
+
+void push_back(linked_list *list, int value)
+{
+    node *new;
+    new = (node*)malloc(sizeof(node));
+    new->data = value;
+    if (list->size == 0)
+    {
+        list->head->next = new;
+        list->tail->next = new;
+        list->size++;
+    }
+    else
+    {
+        list->tail->next->next = new;
+        list->tail->next = new;
         list->size++;
     }
 }
