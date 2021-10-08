@@ -32,6 +32,8 @@ void display_menu()
     printf("\n\t 2. Display List");
     printf("\n\t 3. Push Front");
     printf("\n\t 4. Push Back");
+    printf("\n\t 5. Pop Front");
+    printf("\n\t 6. Pop Back");
     printf("\n\t 8. Exit");
     printf("\n\n\t Enter your choice: ");
 }
@@ -65,6 +67,18 @@ int main()
         {
             int value = get_value();
             PUSH_BACK(my_list, value);
+            break;
+        }
+        case 5:
+        {
+            int value = POP_FRONT(my_list);
+            printf("\nThe value popped from front is: %d", value);
+            break;
+        }
+        case 6:
+        {
+            int value = POP_BACK(my_list);
+            printf("\nThe value popped from back is: %d", value);
             break;
         }
         case 8:

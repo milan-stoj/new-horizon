@@ -81,6 +81,33 @@ void push_back(linked_list *list, int value)
     }
 }
 
+int pop_front(linked_list *list)
+{
+    if (list->size == 0) return 0;
+    int result = list->head->next->data;
+    list->head->next = list->head->next->next;
+    free(list->head->next);
+    list->size--;
+    return result;
+}
+
+int pop_back(linked_list *list)
+{
+    if (list->size == 0) return 0;
+
+    int result = list->tail->next->data;
+
+    node *temp;
+    temp = list->head;
+    while(temp->next->next != list->tail->next) temp = temp->next;
+    free(list->tail->next);
+    list->tail->next = temp->next;
+    list->tail->next->next = NULL;
+    list->size--;
+    return result;
+}
+
+
 int value_at(linked_list *list, int index) {
     if (list->size == 0) return 0;
     node *temp = list->head;
