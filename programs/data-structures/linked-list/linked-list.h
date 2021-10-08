@@ -94,9 +94,7 @@ int pop_front(linked_list *list)
 int pop_back(linked_list *list)
 {
     if (list->size == 0) return 0;
-
     int result = list->tail->data;
-
     node *iter;
     iter = list->head;
     while(iter->next != list->tail) iter = iter->next;
@@ -107,16 +105,22 @@ int pop_back(linked_list *list)
     return result;
 }
 
-
 int value_at(linked_list *list, int index) {
-    if (list->size == 0) return 0;
-    node *temp = list->head;
+    if (list->size == 0 || index > list->size - 1) return 0;
+    node *iter = list->head;
     for(int i = 0; i < index; i++)
     {
-        node *temp = temp->next;
+        iter = iter->next;
     };
-    return temp->data;
+    return iter->data;
 };
+
+void insert(linked_list *list, int index, int value)
+{
+    if (list->size == 0 || index > list->size - 1) return;
+    node *iter = list->head;
+
+}
 
 void display_list(linked_list *list)
 {
