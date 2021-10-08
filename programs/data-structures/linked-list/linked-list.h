@@ -38,8 +38,7 @@ int list_size(linked_list *list)
 
 void init_list(linked_list *list)
 {
-    list->head = (node*)malloc(sizeof(node));
-    list->tail = (node*)malloc(sizeof(node));
+
     list->size = 0;
 }
 
@@ -50,14 +49,14 @@ void push_front(linked_list *list, int value)
     new->data = value;
     if (list->size == 0)
     {
-        list->head->next = new;
-        list->tail->next = new;
+        list->head = new;
+        list->tail = new;
         list->size++;
     }
     else
     {
-        new->next = list->head->next;
-        list->head->next = new;
+        new->next = list->head;
+        list->head = new;
         list->size++;
     }
 }
@@ -69,14 +68,14 @@ void push_back(linked_list *list, int value)
     new->data = value;
     if (list->size == 0)
     {
-        list->head->next = new;
-        list->tail->next = new;
+        list->head = new;
+        list->tail = new;
         list->size++;
     }
     else
     {
-        list->tail->next->next = new;
         list->tail->next = new;
+        list->tail = new;
         list->size++;
     }
 }
@@ -84,10 +83,11 @@ void push_back(linked_list *list, int value)
 int pop_front(linked_list *list)
 {
     if (list->size == 0) return 0;
-    int result = list->head->next->data;
-    list->head->next = list->head->next->next;
-    free(list->head->next);
+    int result = list->head->data;
+    free(list->head);
+    list->head = NULL;
     list->size--;
+    list->head = list->head->next;
     return result;
 }
 
@@ -95,14 +95,14 @@ int pop_back(linked_list *list)
 {
     if (list->size == 0) return 0;
 
-    int result = list->tail->next->data;
+    int result = list->tail->data;
 
-    node *temp;
-    temp = list->head;
-    while(temp->next->next != list->tail->next) temp = temp->next;
+    node *iter;
+    iter = list->head;
+    while(iter->next != list->tail) iter = iter->next;
+    list->tail = iter;
     free(list->tail->next);
-    list->tail->next = temp->next;
-    list->tail->next->next = NULL;
+    list->tail->next = NULL;
     list->size--;
     return result;
 }
@@ -120,11 +120,11 @@ int value_at(linked_list *list, int index) {
 
 void display_list(linked_list *list)
 {
-    if (list->head->next == NULL) return;
+    if (list->head == NULL) return;
     
-    for (node *temp = list->head->next; temp != NULL; temp = temp->next)
+    for (node *iter = list->head; iter != NULL; iter = iter->next)
     {
-        printf("-[%d]-", temp->data);
+        printf("-[%d]-", iter->data);
     }
     printf("\nPress enter to continue...");
     getchar();
