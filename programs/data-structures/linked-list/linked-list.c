@@ -35,6 +35,7 @@ void display_menu()
     printf("\n\t 5. Push Back");
     printf("\n\t 6. Pop Front");
     printf("\n\t 7. Pop Back");
+    printf("\n\t 8. Insert at Index");
     printf("\n\t 8. Exit");
     printf("\n\n\t Enter your choice: ");
 }
@@ -90,6 +91,13 @@ int main()
             break;
         }
         case 8:
+        {
+            int index = get_value();
+            int value = get_value();
+            INSERT(my_list, index, value);
+            break;
+        }
+        case 9:
             exit(1);
             break;
         default:

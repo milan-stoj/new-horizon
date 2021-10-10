@@ -36,6 +36,14 @@ int list_size(linked_list *list)
     return list->size;
 }
 
+node *make_node(int value) 
+{
+    node *new;
+    new = (node*)malloc(sizeof(node));
+    new->data = value;
+    return new;
+}
+
 void init_list(linked_list *list)
 {
 
@@ -44,9 +52,7 @@ void init_list(linked_list *list)
 
 void push_front(linked_list *list, int value)
 {
-    node *new;
-    new = (node*)malloc(sizeof(node));
-    new->data = value;
+    node *new = make_node(value);
     if (list->size == 0)
     {
         list->head = new;
@@ -63,9 +69,7 @@ void push_front(linked_list *list, int value)
 
 void push_back(linked_list *list, int value)
 {
-    node *new;
-    new = (node*)malloc(sizeof(node));
-    new->data = value;
+    node *new = make_node(value);
     if (list->size == 0)
     {
         list->head = new;
@@ -83,11 +87,12 @@ void push_back(linked_list *list, int value)
 int pop_front(linked_list *list)
 {
     if (list->size == 0) return 0;
+    node *new_head = list->head->next;
     int result = list->head->data;
     free(list->head);
     list->head = NULL;
     list->size--;
-    list->head = list->head->next;
+    list->head = new_head;
     return result;
 }
 
@@ -118,8 +123,29 @@ int value_at(linked_list *list, int index) {
 void insert(linked_list *list, int index, int value)
 {
     if (list->size == 0 || index > list->size - 1) return;
+    else if (index == 0)
+    {
+        push_front(list, value);
+        return;
+    }
+    else if (index == list->size - 1)
+    {
+        push_back(list, value);
+        return;
+    }
+    else
+    {
+    node *new = make_node(value);
     node *iter = list->head;
-
+    for(int i = 0; i < index - 1; i++)
+    {
+        iter = iter->next;
+    };
+    new->next = iter->next;
+    iter->next = new;
+    list->size++;
+    return;
+    }
 }
 
 void display_list(linked_list *list)
