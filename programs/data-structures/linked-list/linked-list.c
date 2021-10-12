@@ -27,7 +27,7 @@ int validated_choice()
 
 void display_menu()
 {
-    system("clear");
+    system("cls");
     printf("\n\t 1. Init List");
     printf("\n\t 2. Display List");
     printf("\n\t 3. Value At Index");
