@@ -159,7 +159,19 @@ void display_list(linked_list *list)
     printf("\nPress enter to continue...");
     getchar();
 }
-// Test 
-// Test Mobile
 
+void erase(linked_list *list, int index)
+{
+    node *target = list->head;
+    node *iter = list->head;
+    for(int i = 0; i < index - 1; i++)
+    {
+        target = iter;
+        iter = iter->next;
+    };
+    iter->next = target->next;
+    free(target);
+    target = NULL;
+    return;
+}
 #endif

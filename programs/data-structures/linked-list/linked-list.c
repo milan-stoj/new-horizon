@@ -27,7 +27,7 @@ int validated_choice()
 
 void display_menu()
 {
-    system("cls");
+    system("clear");
     printf("\n\t 1. Init List");
     printf("\n\t 2. Display List");
     printf("\n\t 3. Value At Index");
@@ -36,7 +36,8 @@ void display_menu()
     printf("\n\t 6. Pop Front");
     printf("\n\t 7. Pop Back");
     printf("\n\t 8. Insert at Index");
-    printf("\n\t 8. Exit");
+    printf("\n\t 9. Delete at Index");
+    printf("\n\t 10. Exit");
     printf("\n\n\t Enter your choice: ");
 }
 
@@ -98,8 +99,11 @@ int main()
             break;
         }
         case 9:
-            exit(1);
+        {
+            int index = get_value();
+            ERASE(my_list, index);
             break;
+        }
         default:
             printf("\n\n\t Wrong entry try again....,");
             break;
