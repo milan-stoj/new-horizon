@@ -1,5 +1,5 @@
 {
-	"lldb.displayFormat": "auto",
-	"lldb.dereferencePointers": true,
-	"lldb.showDisassembly": "auto"
+    "files.associations": {
+        "linked-list.h": "c"
+    }
 }

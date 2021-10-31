@@ -18,40 +18,40 @@
 #define REVERSE(list) reverse(&list)
 #define REMOVE_VALUE(list, value) remove_value(&list, value)
 
-typedef struct node 
+typedef struct node
 {
     int data;
-    struct node *next;
+    struct node* next;
 } node;
 
-typedef struct linked_list 
+typedef struct linked_list
 {
-    node *head; // head pointer holds the address of starting node
-    node *tail; // tail pointer holds the address of last node
+    node* head; // head pointer holds the address of starting node
+    node* tail; // tail pointer holds the address of last node
     int size;   // size of the linked list
 } linked_list;
 
-int list_size(linked_list *list)
+int list_size(linked_list* list)
 {
     return list->size;
 }
 
-node *make_node(int value) 
+node* make_node(int value)
 {
-    node *new;
+    node* new;
     new = (node*)malloc(sizeof(node));
     new->data = value;
     return new;
 }
 
-void init_list(linked_list *list)
+void init_list(linked_list* list)
 {
     list->size = 0;
 }
 
-void push_front(linked_list *list, int value)
+void push_front(linked_list* list, int value)
 {
-    node *new = make_node(value);
+    node* new = make_node(value);
     if (list->size == 0)
     {
         list->head = new;
@@ -66,9 +66,9 @@ void push_front(linked_list *list, int value)
     }
 }
 
-void push_back(linked_list *list, int value)
+void push_back(linked_list* list, int value)
 {
-    node *new = make_node(value);
+    node* new = make_node(value);
     if (list->size == 0)
     {
         list->head = new;
@@ -83,10 +83,10 @@ void push_back(linked_list *list, int value)
     }
 }
 
-int pop_front(linked_list *list)
+int pop_front(linked_list* list)
 {
     if (list->size == 0) return 0;
-    node *new_head = list->head->next;
+    node* new_head = list->head->next;
     int result = list->head->data;
     free(list->head);
     list->head = NULL;
@@ -95,13 +95,13 @@ int pop_front(linked_list *list)
     return result;
 }
 
-int pop_back(linked_list *list)
+int pop_back(linked_list* list)
 {
     if (list->size == 0) return 0;
     int result = list->tail->data;
-    node *iter;
+    node* iter;
     iter = list->head;
-    while(iter->next != list->tail) iter = iter->next;
+    while (iter->next != list->tail) iter = iter->next;
     list->tail = iter;
     free(list->tail->next);
     list->tail->next = NULL;
@@ -109,17 +109,17 @@ int pop_back(linked_list *list)
     return result;
 }
 
-int value_at(linked_list *list, int index) {
+int value_at(linked_list* list, int index) {
     if (list->size == 0 || index > list->size - 1) return 0;
-    node *iter = list->head;
-    for(int i = 0; i < index; i++)
+    node* iter = list->head;
+    for (int i = 0; i < index; i++)
     {
         iter = iter->next;
     };
     return iter->data;
 };
 
-void insert(linked_list *list, int index, int value)
+void insert(linked_list* list, int index, int value)
 {
     if (list->size == 0 || index > list->size - 1) return;
     else if (index == 0)
@@ -134,39 +134,54 @@ void insert(linked_list *list, int index, int value)
     }
     else
     {
-    node *new = make_node(value);
-    node *iter = list->head;
-    for(int i = 0; i < index - 1; i++)
-    {
-        iter = iter->next;
-    };
-    new->next = iter->next;
-    iter->next = new;
-    list->size++;
-    return;
+        node* new = make_node(value);
+        node* iter = list->head;
+        for (int i = 0; i < index - 1; i++)
+        {
+            iter = iter->next;
+        };
+        new->next = iter->next;
+        iter->next = new;
+        list->size++;
+        return;
     }
 }
 
-void display_list(linked_list *list)
+void display_list(linked_list* list)
 {
     if (list->head == NULL) return;
-    
-    for (node *iter = list->head; iter != NULL; iter = iter->next)
+    node* iter;
+    iter = list->head;
+
+    for (int i = 0; i < list->size; i++)
     {
         printf("-[%d]-", iter->data);
+        iter = iter->next;
     }
     printf("\nPress enter to continue...");
     getchar();
 }
 
-void erase(linked_list *list, int index)
+void erase(linked_list* list, int index)
 {
-    node *target = list->head;
-    node *iter = list->head;
-    for(int i = 0; i < index - 1; i++)
+	if (list->size == 0) return 0;
+    if (index == 0) // removing head
     {
-        target = iter;
-        iter = iter->next;
+		node* new_head = list->head->next;
+		free(list->head);
+		list->head = NULL;
+		list->size--;
+		list->head = new_head;
+        return;
+    }
+    node* prev = list->head;
+    node* target = list->head;
+    node* next = list->head;
+    for (int i = 0; i < index - 1; i++)
+    {
+        prev = target;
+        target = target->next;
+        next = target->next;
     };
     iter->next = target->next;
     free(target);
