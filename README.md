@@ -106,7 +106,7 @@
     - [x] back() - get value of end item
     - [x] insert(index, value) - insert value at index, so current item at that index is pointed to by new item at index
     - [x] erase(index) - removes node at given index
-    - [ ] value_n_from_end(n) - returns the value of the node at nth position from the end of the list
+    - [x] value_n_from_end(n) - returns the value of the node at nth position from the end of the list
     - [ ] reverse() - reverses the list
     - [ ] remove_value(value) - removes the first item in the list with this value
   
