@@ -8,12 +8,12 @@
 
 char input[BUFFER_SIZE];
 
-int get_value() 
+int get_value()
 {
     printf("\nPlease enter a value: ");
     int num;
     fgets(input, BUFFER_SIZE, stdin);
-    if (sscanf(input, "%d", &num) != 1) num = 0;
+    if (sscanf_s(input, "%d", &num) != 1) num = 0;
     return num;
 }
 
@@ -21,7 +21,7 @@ int validated_choice()
 {
     int num;
     fgets(input, BUFFER_SIZE, stdin);
-    if (input[1] != '\n' || sscanf(input, "%d", &num) != 1) num = 0;
+    if (input[1] != '\n' || sscanf_s(input, "%d", &num) != 1) num = 0;
     return num;
 }
 
