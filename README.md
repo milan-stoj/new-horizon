@@ -93,7 +93,7 @@
     
     - [Pointers to Pointers](https://www.eskimo.com/~scs/cclass/int/sx8.html)
   
-  - [ ] Implement:
+  - [x] Implement:
     
     - [x] size() - returns number of data elements in list
     - [x] empty() - bool returns true if empty
