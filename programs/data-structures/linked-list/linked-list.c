@@ -13,7 +13,7 @@ int get_value()
     printf("\nPlease enter a value: ");
     int num;
     fgets(input, BUFFER_SIZE, stdin);
-    if (sscanf_s(input, "%d", &num) != 1) num = 0;
+    sscanf_s(input, "%d", &num);
     return num;
 }
 
@@ -21,7 +21,8 @@ int validated_choice()
 {
     int num;
     fgets(input, BUFFER_SIZE, stdin);
-    if (input[1] != '\n' || sscanf_s(input, "%d", &num) != 1) num = 0;
+    if (input[1] != '\n') num = 0;
+    sscanf_s(input, "%d", &num);
     return num;
 }
 
@@ -37,14 +38,18 @@ void display_menu()
     printf("\n\t 7. Pop Back");
     printf("\n\t 8. Insert at Index");
     printf("\n\t 9. Delete at Index");
-    printf("\n\t 10. Exit");
+    printf("\n\t 10. Value of n From End");
+    printf("\n\t 11. Reverse");
+    printf("\n\t 12. Remove Value");
+    printf("\n\t 69. Exit");
     printf("\n\n\t Enter your choice: ");
 }
 
 
 int main()
 {
-    linked_list my_list;
+    linked_list* my_list;
+    my_list = (linked_list*)malloc(sizeof(linked_list));
     for (;;)
     {
         display_menu();
@@ -65,6 +70,7 @@ int main()
             int index = get_value();
             int result = VALUE_AT(my_list, index);
             printf("\nThe value at index %d is: %d", index, result);
+            getchar();
             break;
         }
         case 4:
@@ -104,6 +110,19 @@ int main()
         {
             int index = get_value();
             ERASE(my_list, index);
+            break;
+        }
+        case 10:
+        {
+            int index = get_value();
+            int result = VALUE_N_FROM_END(my_list, index);
+            printf("\nThe value %d from the end is: %d", index, result);
+            getchar();
+            break;
+        }
+        case 69:
+        {
+            exit(0);
             break;
         }
         default:

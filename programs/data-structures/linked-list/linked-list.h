@@ -119,6 +119,18 @@ int value_at(linked_list* list, int index) {
     return iter->data;
 };
 
+int value_n_from_end(linked_list* list, int n) {
+    if (list->size == 0) return 0;
+    int iter = list->size - 1 - n;
+    node* target = list->head;
+
+    for (int i = 0; i < iter; i++)
+    {
+        target = target->next;
+    }
+    return target->data;
+};
+
 void insert(linked_list* list, int index, int value)
 {
     if (list->size == 0 || index > list->size - 1) return;
@@ -180,7 +192,18 @@ void erase(linked_list* list, int index)
         return;
     }
 
-    for (int i = 0; i < index - 1; i++)
+    if (index == list->size) // remove tail
+    {
+		node* iter;
+		iter = list->head;
+		while (target->next != list->tail) target = target->next;
+		list->tail = target;
+		free(list->tail->next);
+		list->tail->next = NULL;
+		list->size--;
+    }
+
+    for (int i = 0; i < index; i++)
     {
         prev = target;
         target = target->next;
@@ -192,5 +215,7 @@ void erase(linked_list* list, int index)
     list->size--;
     return;
 }
+
+
 
 #endif
