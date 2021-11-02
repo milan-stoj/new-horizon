@@ -120,6 +120,20 @@ int main()
             getchar();
             break;
         }
+        case 11:
+        {
+            REVERSE(my_list);
+            break;
+        }
+        case 12:
+        {
+            int value = get_value();
+            int result = REMOVE_VALUE(my_list, value);
+            if(result == 1) printf("\nThe value %d was removed from the list.", value);
+            if(result == 0) printf("\nThe value %d was not found in the list.", value);
+            getchar();
+            break;
+        }
         case 69:
         {
             exit(0);
