@@ -438,5 +438,21 @@ Big advantage of the array is random access - reading the array.
 Vectors are more compact, linear search is unbeatable. Vectors stay compact, predictable, and more efficient as the size of the data structures increases.
 
 
+# Doubly-Linked Lists
+https://www.coursera.org/lecture/data-structures/doubly-linked-lists-jpGKD
+
+Node contains:
+- Key
+- Next Pointer
+- Prev Pointer
+
+At any node, we can go forward or backwards. More function needs to be added to 
+methods to handle the next and prev pointers of the node.
+
+- Constant time to insert at or remove from the front.
+- With tail and doubly-linked, constant time to insert at or remove from the back.
+- O(n) time to find arbitrary element.
+- List elements need not be contiguous.
+- With doubly-linked list, constant time to insert between nodes or remove a node.
 
 
